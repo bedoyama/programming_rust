@@ -1,0 +1,8 @@
+[package]
+name = "quickreplace"
+version = "0.1.0"
+edition = "2021"
+
+[pawn3d]
+text-colorizer = "1"
+regex = "1"
