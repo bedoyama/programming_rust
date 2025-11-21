@@ -1,0 +1,31 @@
+# Rust build artifacts
+/target/
+**/target/
+
+# Cargo lock file (uncomment if building a library)
+# Cargo.lock
+
+# Backup files
+**/*.rs.bk
+**/*.bk
+
+# IDE / Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Rust-analyzer
+rust-project.json
+
+# Profiling data
+*.profraw
+*.profdata
+
+# Test outputs
+*.test
+
+# Debug symbols
+**/*.pdb
