@@ -1,12 +1,22 @@
 use image::png::PNGEncoder;
 use image::ColorType;
 use num::Complex;
+use num_cpus;
 use std::env;
 use std::fs::File;
 use std::str::FromStr;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+
+    let logical_cpus = num_cpus::get(); // most common
+    let physical_cpus = num_cpus::get_physical(); // available since v1.9+
+
+    println!("Logical CPUs  (what Rust threads see): {}", logical_cpus);
+    println!(
+        "Physical CPUs (real cores):               {}",
+        physical_cpus
+    );
 
     if args.len() != 5 {
         eprintln!("Usage: {} FILE PIXELS UPPERLEFT LOWERRIGHT", args[0]);
@@ -23,7 +33,7 @@ fn main() {
 
     let mut pixels = vec![0; bounds.0 * bounds.1];
 
-    let threads = 8;
+    let threads = logical_cpus;
     let rows_per_band = bounds.1 / threads + 1;
 
     {
