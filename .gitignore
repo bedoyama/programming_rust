@@ -29,3 +29,6 @@ rust-project.json
 
 # Debug symbols
 **/*.pdb
+
+# Image files
+*.png
