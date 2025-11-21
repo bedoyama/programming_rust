@@ -4,7 +4,7 @@ use std::env;
 fn main() {
     let mut numbers = Vec::new();
 
-    for arg on env::args().skip(1) {
+    for arg in env::args().skip(1) {
         numbers.push(u64::from_str(&arg).expect("error parsing argument"));
     }
 
